@@ -1,0 +1,35 @@
+# Gradle files
+.gradle/
+build/
+
+# IntelliJ IDEA / Android Studio
+*.iml
+.idea/
+# If you want to share IDE settings, comment out the line above and uncomment the lines below
+# !.idea/codeStyles/
+# !.idea/inspectionProfiles/
+
+# Local configuration file (contains system-specific paths)
+local.properties
+
+# Log files
+*.log
+
+# Android Studio Captures
+captures/
+
+# External Native Build
+.externalNativeBuild/
+.cxx/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Built artifacts
+*.apk
+*.ap_
+*.dex
+
+# Kotlin
+*.kotlin_module
