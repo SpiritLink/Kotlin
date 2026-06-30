@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">TripApp</string>
+    <string name="app_name">sol</string>
+    <string name="drawer_opened">Opened Drawer</string>
+    <string name="drawer_closed">Closed Drawer</string>
+
+    <string name="about_main">
+    Agoda is part of Booking Holdings Inc., a global leader in online travel and related services.
+    </string>
+    <string name="about_detail">
+    Agoda has a global network of 4.5 million hotels and vacation rentals around the world, helping everyone travel anywhere with affordable prices, including flights and activities. Agoda.com and the Agoda mobile app are available in 39 languages ​​and have 24/7 customer support. Booking Holdings Inc. Agoda, part of (Nasdaq: BKNG), is headquartered in Singapore and has over 7,000 employees in 27 countries/regions around the world who are committed to using the best technology to make travel easier and more convenient.
+    </string>
+    <string name="about_more">More</string>
 </resources>

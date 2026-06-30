@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="특가 여행지"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="10dp" />
@@ -103,6 +103,8 @@
                             android:layout_height="wrap_content"
                             android:text="최대 20% 할인" />
                 </LinearLayout>
+
+                <!-- 한글 -->
 
             </androidx.cardview.widget.CardView>
 
@@ -279,11 +281,14 @@
                             android:text="최대 5% 할인" />
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
-
         </GridLayout>
-    </LinearLayout>
 
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="go about"
+                android:id="@+id/testAboutButton" />
+
+    </LinearLayout>
 </ScrollView>

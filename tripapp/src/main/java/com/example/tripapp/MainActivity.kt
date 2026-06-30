@@ -53,10 +53,14 @@ class MainActivity : AppCompatActivity() {
 //        some(10, { 10})
 //        some(10){2}
         binding.mainEvent.setOnClickListener {
-            Log.d("kkang", "Start Intent")
             var intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
-            Log.d("kkang", "Finish Intent")
+        }
+
+        // about activity 전환 용
+        binding.testAboutButton.setOnClickListener {
+            var intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
         }
 
         // back button 이벤트 처리의 기본은 onKeyDown() 으로.. 키 이벤트 처리가 기본..
