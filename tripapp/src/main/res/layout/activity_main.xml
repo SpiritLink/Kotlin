@@ -47,8 +47,8 @@
                     android:text="특가 여행지"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    android:layoutMarginleft="16dp"
-                    android:layoutMarginTop="10dp" />
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="10dp" />
 
             <Button
                     android:layout_width="wrap_content"
@@ -73,6 +73,41 @@
             선언해서 match_parent 로 지정하면 적용 안된다.. 숫자값으로 지정하면 적용된다..
             폰 사이즈 호환성을 위해서.. 사이즈를 0으로 지정한 후, weight 로만 사이즈가 결정되게 .. -->
             <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:contentPadding="10dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:maxWidth="150dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/main_swiss" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="스위스" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="최대 20% 할인" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                    android:id="@+id/main_event"
                     android:layout_width="0dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="10dp"
