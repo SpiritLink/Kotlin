@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 여러 뷰 나열, 화면을 벗어나는 경우, 자동 스크롤 되지 않는다. ScrollView로 감싸야 한다. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="300dp"
+                    android:src="@drawable/main_bg_1" />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:gravity="center"
+                    android:text="연말연시 특별 할인 이벤트 \n 최대 20% 할인"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+            <TextView
+                    android:id="@+id/main_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="특가 여행지"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layoutMarginleft="16dp"
+                    android:layoutMarginTop="10dp" />
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="특가 여행지 보기"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignBaseline="@id/main_title"
+                    android:backgroundTint="#3899DD"
+                    android:drawableLeft="@android:drawable/arrow_down_float" />
+        </RelativeLayout>
+
+        <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:columnCount="2">
+
+            <!-- 뷰를 xml로 선언할 때 필수 속성이 layout_width, layout_height
+            GridLayout 하위의 뷰에 한해서는 width, height 값이 기본 wrap_content 로 지정되어 있어서
+            선언하지 않아도 된다..
+            선언해서 match_parent 로 지정하면 적용 안된다.. 숫자값으로 지정하면 적용된다..
+            폰 사이즈 호환성을 위해서.. 사이즈를 0으로 지정한 후, weight 로만 사이즈가 결정되게 .. -->
+            <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:contentPadding="10dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:maxWidth="150dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/main_swiss" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="스위스" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="최대 20% 할인" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </GridLayout>
+    </LinearLayout>
+
+</ScrollView>
