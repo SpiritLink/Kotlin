@@ -27,6 +27,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    // 선언하는 것만으로 layout xml 파일 하나당 XXXBinding 클래스 자동으로 만들어진다..
+    viewBinding.enable = true
 }
 
 dependencies {

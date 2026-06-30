@@ -9,13 +9,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.androidlab.databinding.ActivityMainBinding
 
 // 버전 호환성을 위해 AppCompatActivity 를 상속받는다.
 class MainActivity : AppCompatActivity() {
 
     lateinit var textView: TextView
-    lateinit var button: Button
-    lateinit var editView: EditText
+//    lateinit var button: Button
+//    lateinit var editView: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,20 +26,33 @@ class MainActivity : AppCompatActivity() {
         // 두개를 합쳐서 system 영역이라 부른다.
         enableEdgeToEdge()
 
-        // 화면 출력 명령.. : inflate(xml 에 명시된 뷰 객체 생성, 메모리에 올리는 작업)
-        setContentView(R.layout.activity_main)
+        // View Binding 이전 코드
+//        // 화면 출력 명령.. : inflate(xml 에 명시된 뷰 객체 생성, 메모리에 올리는 작업)
+//        setContentView(R.layout.activity_main)
+//
+//        // 필요한 뷰 객체 획득
+//        textView = findViewById(R.id.textView)
+//        button = findViewById(R.id.Button)
+//        editView = findViewById(R.id.editView)
+//
+//        // 뷰에 이벤트 등록
+//        button.setOnClickListener {
+//            // 유저 입력값 획득
+//            val data = editView.text.toString()
+//            Log.d("kkang", data)
+//            textView.text = editView.text.toString()
+//        }
 
-        // 필요한 뷰 객체 획득
-        textView = findViewById(R.id.textView)
-        button = findViewById(R.id.Button)
-        editView = findViewById(R.id.editView)
+        // XXX Binding 클래스에 일은 시켜야 한다 .. 객체를 메모리에 올려달라 ..
+        var binding = ActivityMainBinding.inflate(layoutInflater)
 
-        // 뷰에 이벤트 등록
-        button.setOnClickListener {
-            // 유저 입력값 획득
-            val data = editView.text.toString()
+        // 화면 출력..
+        setContentView(binding.root)
+
+        // id 로 변수명
+        binding.Button.setOnClickListener {
+            var data = binding.editView.text.toString();
             Log.d("kkang", data)
-            textView.text = editView.text.toString()
         }
 
         // 시스템 영역에서 액티비티 컨텐츠를 보호해서 출력하기 위한 설정..
