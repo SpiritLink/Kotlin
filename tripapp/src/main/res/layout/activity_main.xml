@@ -296,5 +296,11 @@
                 android:layout_height="wrap_content"
                 android:text="go myInfo" />
 
+        <Button
+                android:id="@+id/testSettingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="go Setting" />
+
     </LinearLayout>
 </ScrollView>

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tripapp.databinding.ActivityMainBinding
+import com.example.tripapp.settings.MySettingFragment
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -53,19 +54,25 @@ class MainActivity : AppCompatActivity() {
 //        some(10, { 10})
 //        some(10){2}
         binding.mainEvent.setOnClickListener {
-            var intent = Intent(this, DetailActivity::class.java)
+            val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
         }
 
         // about activity 전환 용
         binding.testAboutButton.setOnClickListener {
-            var intent = Intent(this, AboutActivity::class.java)
+            val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
 
         // myInfo activity 전환 용
         binding.testMyInfoButton.setOnClickListener {
-            var intent = Intent(this, MyInfoActivity::class.java)
+            val intent = Intent(this, MyInfoActivity::class.java)
+            startActivity(intent)
+        }
+
+        // setting activity 전환 용
+        binding.testSettingButton.setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
 
