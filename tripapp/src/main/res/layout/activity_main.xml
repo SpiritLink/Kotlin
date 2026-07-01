@@ -12,6 +12,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+        <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/toolbar"/>
+
         <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -296,11 +301,11 @@
                 android:layout_height="wrap_content"
                 android:text="go myInfo" />
 
-        <Button
-                android:id="@+id/testSettingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="go Setting" />
+<!--        <Button-->
+<!--                android:id="@+id/testSettingButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="go Setting" />-->
 
     </LinearLayout>
 </ScrollView>

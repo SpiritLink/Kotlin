@@ -3,15 +3,16 @@ package com.example.tripapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tripapp.databinding.ActivityMainBinding
-import com.example.tripapp.settings.MySettingFragment
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -32,6 +33,9 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // 액티비티 윈도우의 액션바를 개발자가 지정한 툴바에 적용해 달라..
+        setSupportActionBar(binding.toolbar)
 
         // object : 익명 클래스 선언 예약어
         // class A {} ==> object {}
@@ -70,12 +74,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // setting activity 전환 용
-        binding.testSettingButton.setOnClickListener {
-            val intent = Intent(this, SettingActivity::class.java)
-            startActivity(intent)
-        }
-
         // back button 이벤트 처리의 기본은 onKeyDown() 으로.. 키 이벤트 처리가 기본..
         // 앱에서 백버튼 이벤트 처리 비율이 높고.. 이벤트 처리 로직이 여러개 인 경우가 있어서 ...
         // api 33 에서 onKeyDown() 으로 백버튼 이벤트 처리가 deprecated 되었고 .. addCallback 으로 별도 callback 등록 방법 권장
@@ -98,5 +96,37 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // 메뉴 출력
+        menuInflater.inflate(R.menu.menu_main, menu)
+        // SearchView 가 적용된 MenuItem 획득
+        val menuItem = menu?.findItem(R.id.menu_search)
+        val searchView = menuItem?.actionView as? SearchView
+
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+            // 검색을 위해 나온 키보드의 검색 버튼 클릭..
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                Toast.makeText(this@MainActivity, query, Toast.LENGTH_SHORT).show()
+                searchView.setQuery("", false);
+                searchView.isIconified = true // 아이콘으로 복귀..
+                return true
+            }
+        })
+
+        return super.onCreateOptionsMenu(menu)
+    }
+    // 메뉴 이벤트 처리 자동 호출..
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menu_setting){
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

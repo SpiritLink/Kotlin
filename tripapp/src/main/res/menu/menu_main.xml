@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+xml 속성, 정보이다. 누군가는 이 정보를 참조해서 처리를 해주어야 한다.
+그 처리하는 곳이 platform api 라면.. 속성 표준 속성이다. http://schemas.android.com/apk/res/android
+네임스페이스로 등록
+
+속성을 참조해서 처리하는 api 가 platform api 가 아니라면 표준 속성이 아니다.
+http://schemas.android.com/apk/res-auto 로 네임스페이스 선언해서 등록..
+
+showAsAction 하위 호환성 문제 있다.. 액티비티의 하위호환성을 해결하기 위해서
+액티비티를 만들때 appcompat 라이브러리의 AppCompatActivity 상속으로 만든다..
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/menu_setting"
+            android:title="설정" />
+
+    <item
+            android:id="@+id/menu_search"
+            android:title="search"
+            android:icon="@android:drawable/ic_menu_search"
+            app:showAsAction="always"
+            app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+</menu>
+<!--
+메뉴를 적용하려면 ...
+테마를 조정해서 actionbar 가 출력되게 하거나 ..
+액션바를 대체하기 위한 toolbar를 사용하던가 (권장)
+-->
