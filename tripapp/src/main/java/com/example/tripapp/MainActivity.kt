@@ -63,6 +63,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // myInfo activity 전환 용
+        binding.testMyInfoButton.setOnClickListener {
+            var intent = Intent(this, MyInfoActivity::class.java)
+            startActivity(intent)
+        }
+
         // back button 이벤트 처리의 기본은 onKeyDown() 으로.. 키 이벤트 처리가 기본..
         // 앱에서 백버튼 이벤트 처리 비율이 높고.. 이벤트 처리 로직이 여러개 인 경우가 있어서 ...
         // api 33 에서 onKeyDown() 으로 백버튼 이벤트 처리가 deprecated 되었고 .. addCallback 으로 별도 callback 등록 방법 권장

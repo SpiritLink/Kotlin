@@ -285,10 +285,16 @@
         </GridLayout>
 
         <Button
+                android:id="@+id/testAboutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="go about"
-                android:id="@+id/testAboutButton" />
+                android:text="go about" />
+
+        <Button
+                android:id="@+id/testMyInfoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="go myInfo" />
 
     </LinearLayout>
 </ScrollView>
