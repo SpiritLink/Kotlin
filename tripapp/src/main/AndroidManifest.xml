@@ -34,6 +34,9 @@
                 android:name=".SettingActivity"
                 android:exported="false"
                 android:windowSoftInputMode="adjustResize" />
+        <activity
+                android:name=".ComposeActivity"
+                android:exported="false" />
     </application>
 
 </manifest>

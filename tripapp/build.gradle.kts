@@ -1,12 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.example.tripapp"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.tripapp"
@@ -32,6 +31,10 @@ android {
 
     // 선언하는 것만으로 layout xml 파일 하나당 XXXBinding 클래스 자동으로 만들어진다..
     viewBinding.enable = true
+
+    buildFeatures {
+        compose = true // Compose 활성화
+    }
 }
 
 dependencies {
@@ -43,6 +46,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+
+    val composeBom = platform("androidx.compose:compose-bom:2024.02.01")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.activity:activity-compose:1.9.0")
 
     // 외부 라이브러리 등록 .. 다운로드 .. sync now 하는 순간..
 
