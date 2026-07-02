@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tripapp.R
 import com.example.tripapp.databinding.FragmentDetailMainBinding
 import com.example.tripapp.databinding.ItemRecyclerviewBinding
 
@@ -80,6 +82,21 @@ class DetailMainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentDetailMainBinding.inflate(inflater, container, false)
+
+        val datas = mutableListOf<Product>()
+        for (i in 1..1000) {
+            if (i % 3 == 0) {
+                datas.add(Product(R.drawable.item1, "($i) 스위스/이탈리아 9일", "터키항공 잔여석31 가이드동행"))
+            } else if (i % 3 == 1) {
+                datas.add(Product(R.drawable.item2, "($i) 서유럽 4국 9일", "아시아나항공 잔여석25 가이드동행"))
+            } else {
+                datas.add(Product(R.drawable.item3, "($i) 스위스 일주 9일", "대한항공 잔여석19 가이드동행"))
+            }
+        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerView.adapter = MyAdapter(datas)
+        binding.recyclerView.addItemDecoration(MyDecoration(activity as Context))
+
         return binding.root
     }
 }
